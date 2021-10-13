@@ -44,13 +44,13 @@ async def cb_about(bot, update: CallbackQuery):
                 
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data="settings"
+                    "🔙 Retour", callback_data="settings"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "Close 🔐", callback_data="close"
+                    "Fermer 🔐", callback_data="close"
                 )
         ]
     ]
