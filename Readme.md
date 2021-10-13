@@ -1,10 +1,6 @@
 # Katnice La réceptionniste de Sharing_Club
 
 <p align="center">
-  <a href="https://t.me/Shar_Group">
-    <img src="https://telegra.ph/file/b20d9c65825b9e38ac496.jpg">
-
-  </a>
   
   <a href="https://t.me/Sharing_Club">
     <img src="https://telegra.ph/file/b20d9c65825b9e38ac496.jpg">
@@ -19,6 +15,13 @@
 
 * -> Vous ne pouvez pas ajouter à votre Groupe<br>
 * -> Pour m'utiliser rejoignez-nous sur @Shar_Group
+* -> Je ne peux recevoir de message en privée
+-> Pour que je t'apporte mon aide! tu doit-être obligatoirement membre👨‍👩‍👦‍👦 de @Shar_Group et pourquoi pas de @Sharing_Club😏✊
+-> Ecrire simplement dans le Groupe @Shar_Group le nom du film ou la série dont tu as besoin.
+-> N.B: Une seule requête par Message (Tu peux en faire plusieurs en plusieurs messages)
+-> Le plus important est de veuillez à écrire l'orthographe correcte des noms des films et des Séries.
+-> Tu peux aussi passer par mon amie Alexa (@Alexandrinebot)
+
 
 **Bot Commands (Seulement dans @Shar_Group) :**
  Je ne peux recevoir de message en privée
