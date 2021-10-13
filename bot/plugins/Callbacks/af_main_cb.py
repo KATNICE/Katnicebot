@@ -179,25 +179,25 @@ async def cb_settings(bot, update: CallbackQuery):
     bot_status = await bot.get_me()
     bot_fname= bot_status.first_name
     
-    text =f"<i>{bot_fname}'s</i> Auto Filter Settings Pannel.....\n"
-    text+=f"\n<i>You Can Use This Menu To Change Connectivity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</i>"
+    text =f"<i>{bot_fname}'s</i> Panneau de configuration de Katnice.....\n"
+    text+=f"\n<i>Vous pouvez utiliser ce menu pour modifier la connectivité et connaître l'état de chaque canal connecté, modifier les types de filtre, configurer les résultats du filtre et connaître l'état de votre groupe...</i>"
     
     buttons = [
         [
             InlineKeyboardButton
                 (
-                    "Channels", callback_data=f"channel_list({chat_id})"
+                    "Canaux", callback_data=f"channel_list({chat_id})"
                 ), 
             
             InlineKeyboardButton
                 (
-                    "Filter Types", callback_data=f"types({chat_id})"
+                    "Types de Filtres", callback_data=f"types({chat_id})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "Configure 🛠", callback_data=f"config({chat_id})"
+                    "Configurer 🛠", callback_data=f"config({chat_id})"
                 )
         ], 
         [
@@ -208,13 +208,13 @@ async def cb_settings(bot, update: CallbackQuery):
             
             InlineKeyboardButton
                 (
-                    "About", callback_data=f"about({chat_id})"
+                    "À propos", callback_data=f"about({chat_id})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "Close 🔐", callback_data="close"
+                    "Fermer 🔐", callback_data="close"
                 )
         ]
     ]
@@ -253,61 +253,61 @@ async def cb_warn(bot, update: CallbackQuery):
     channel_id, channel_name, action = re.findall(r"warn\((.+)\)", query_data)[0].split("|", 2)
     
     if action == "connect":
-        text=f"<i>Are You Sure You Want To Enable Connection With</i> <code>{channel_name}</code><i>..???</i>\n"
-        text+=f"\n<i>This Will Show File Links From</i> <code>{channel_name}</code> <i>While Showing Results</i>..."
+        text=f"<i>Êtes-vous sûr de vouloir activer la connexion avec</i> <code>{channel_name}</code><i>..???</i>\n"
+        text+=f"\n<i>Cela affichera les liens de fichiers de</i> <code>{channel_name}</code> <i>Tout en affichant les résultats</i>..."
 
 
     elif action == "disconnect":
-        text=f"<i>Are You Sure You Want To Disable</i> <code>{channel_name}</code> <i>Connection With The Group???....</i>\n"
-        text+=f"\n<i>The DB Files Will Still Be There And You Can Connect Back To This Channel Anytime From Settings Menu Without Adding Files To DB Again...</i>\n"
-        text+=f"\n<i>This Disabling Just Hide Results From The Filter Results...</i>"
+        text=f"<i>Êtes-vous sûr de vouloir désactiver</i> <code>{channel_name}</code> <i>Connexion avec le groupe???....</i>\n"
+        text+=f"\n<i>Les fichiers DB seront toujours là et vous pourrez vous reconnecter à ce canal à tout moment à partir du menu Paramètres sans ajouter à nouveau de fichiers à la base de données....</i>\n"
+        text+=f"\n<i>Cette désactivation ne fait que masquer les résultats des résultats du filtre...</i>"
 
 
     elif action == "c_delete":
-        text=f"<i>Are You Sure You Want To Disconnect</i> <code>{channel_name}</code> <i>From This Group??</i>\n"
-        text+=f"\n<i><b>This Will Delete Channel And All Its Files From DB Too....!!</b></i>\n"
+        text=f"<i>Êtes-vous sûr de vouloir vous déconnecter</i> <code>{channel_name}</code> <i>De ce groupe??</i>\n"
+        text+=f"\n<i><b>Cela supprimera également la chaîne et tous ses fichiers de la base de données....!!</b></i>\n"
         text+=f"\nYou Need To Add Channel Again If You Need To Shows It Result..."
         text+=f"\n<s>ProTip: Make Use Of Disconnect Button To Disable <code>{channel_name}</code> Results Temporarily....</s>"
 
 
     elif action=="f_delete":
-        text=f"<i>Are You Sure That You Want To Clear All Filter From This Chat</i> <code>{channel_name}</code><i>???</i>\n"
-        text+=f"\n<i>This Will Erase All Files From DB..</i>"
+        text=f"<i>Êtes-vous sûr de vouloir effacer tous les filtres de ce chat</i> <code>{channel_name}</code><i>???</i>\n"
+        text+=f"\n<i>Cela effacera tous les fichiers de la base de données..</i>"
 
 
     elif action == "gcmds" and channel_name == "conn":
-        text=f"<i>Are You Sure You Want To Enable All Connection Of</i> <code>{chat_name}</code><i>..???</i>\n"
-        text+=f"\n<i>This Will Show File In The Results From All Chat Connections Of</i> <code>{chat_name}</code>..."
+        text=f"<i>Êtes-vous sûr de vouloir activer toutes les connexions de</i> <code>{chat_name}</code><i>..???</i>\n"
+        text+=f"\n<i>Cela affichera le fichier dans les résultats de toutes les connexions de discussion de</i> <code>{chat_name}</code>..."
 
 
     elif action == "gcmds" and channel_name == "disconn":
-        text=f"<i>Are You Sure You Want To Disable All Connection Of</i> <code>{chat_name}</code><i>....???</i>\n"
-        text+=f"\n<i>The DB Files Will Still Be There And You Can Connect Back To All Channel Anytime From Settings Menu Without Adding Files To DB Again...</i>\n"
-        text+=f"\n<i>This Disabling Will No Longer Show Results To Any Query Unless You Enable Back Them...</i>"
+        text=f"<i>Êtes-vous sûr de vouloir désactiver toutes les connexions Of</i> <code>{chat_name}</code><i>....???</i>\n"
+        text+=f"\n<i>Les fichiers DB seront toujours là et vous pourrez vous reconnecter à tous les canaux à tout moment à partir du menu Paramètres sans ajouter à nouveau de fichiers à la base de données...</i>\n"
+        text+=f"\n<i>Cette désactivation n'affichera plus les résultats d'aucune requête à moins que vous ne les activiez en arrière...</i>"
     
     
     elif action == "gcmds" and channel_name == "c_delete":
-        text=f"<i>Are You Sure You Want To Disconnect ALl COnnected Chats Of </i> <code>{chat_name}</code> <i>....???</i>\n"
-        text+=f"\n<i><b>This Will Delete All Connected Channel And All Its Files From DB Too....!!</b></i>\n"
-        text+=f"\nYou Need To Add Channel Again If You Need To Shows It's Results Again.....\n"
-        text+=f"\n<s>ProTip: Make Use Of Disconnect Button To Disable All Chat Results Temporarily....</s>"
+        text=f"<i>Êtes-vous sûr de vouloir déconnecter TOUS les chats connectés de </i> <code>{chat_name}</code> <i>....???</i>\n"
+        text+=f"\n<i><b>Cela supprimera également tous les canaux connectés et tous ses fichiers de la base de données....!!</b></i>\n"
+        text+=f"\nVous devez à nouveau ajouter une chaîne si vous devez afficher à nouveau ses résultats.....\n"
+        text+=f"\n<s>Conseil de pro : utilisez le bouton de déconnexion pour désactiver temporairement tous les résultats de discussion....</s>"
 
 
     elif action == "gcmds" and channel_name == "f_delete":
-        text=f"<i>Are You Sure That You Want To Clear All Filters Of</i> <code>{chat_name}</code><i>....???</i>\n"
-        text+=f"\n<i>This Will Erase All Files Of <code>{chat_name}</code> From DB..</i>"
+        text=f"<i>Êtes-vous sûr de vouloir effacer tous les filtres de</i> <code>{chat_name}</code><i>....???</i>\n"
+        text+=f"\n<i>Cela effacera tous les fichiers de <code>{chat_name}</code> De la BD....</i>"
     
     
     buttons = [
         [
             InlineKeyboardButton
                 (
-                    "Yes", callback_data=f"{action}({channel_id}|{channel_name})"
+                    "Oui", callback_data=f"{action}({channel_id}|{channel_name})"
                 ), 
             
             InlineKeyboardButton
                 (
-                    "No", callback_data="close"
+                    "Non", callback_data="close"
                 )
         ]
     ]
@@ -350,7 +350,7 @@ async def cb_set(bot, update: CallbackQuery):
         chat_id = int(chat_id)
     
     if val == curr_val:
-        await update.answer("New Value Cannot Be Old Value...Please Choose Different Value...!!!", show_alert=True)
+        await update.answer("La nouvelle valeur ne peut pas être une ancienne valeur... Veuillez choisir une valeur différente...!!!", show_alert=True)
         return
     
     prev = await db.find_chat(chat_id)
@@ -397,18 +397,18 @@ async def cb_set(bot, update: CallbackQuery):
         await update.answer(text=text, show_alert=True)
         return
     
-    text=f"Your Request Was Updated Sucessfully....\nNow All Upcoming Results Will Show According To This Settings..."
+    text=f"Votre demande a été mise à jour avec succès....\nMaintenant, tous les résultats à venir s'afficheront en fonction de ces paramètres..."
         
     buttons = [
         [
             InlineKeyboardButton
                 (
-                    "Back 🔙", callback_data=f"config({chat_id})"
+                    "Retour 🔙", callback_data=f"config({chat_id})"
                 ),
             
             InlineKeyboardButton
                 (
-                    "Close 🔐", callback_data="close"
+                    "Fermer 🔐", callback_data="close"
                 )
         ]
     ]
@@ -428,12 +428,12 @@ async def callback_data(bot, update: CallbackQuery):
 
     if query_data == "start":
         buttons = [[
-            InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/CrazyBotsz'),
-            InlineKeyboardButton('Source Code 🧾', url ='https://github.com/CrazyBotsz/Adv-Auto-Filter-Bot-V2')
+            InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/Philantrpe'),
+            InlineKeyboardButton('Source Code 🧾', url ='https://t.me/Sharing_Club')
         ],[
-            InlineKeyboardButton('Support 🛠', url='https://t.me/CrazyBotszGrp')
+            InlineKeyboardButton('Support 🛠', url='https://t.me/Shar_Group')
         ],[
-            InlineKeyboardButton('Help ⚙', callback_data="help")
+            InlineKeyboardButton('Aides ⚙', callback_data="help")
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -449,9 +449,9 @@ async def callback_data(bot, update: CallbackQuery):
     elif query_data == "help":
         buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('About 🚩', callback_data='about')
+            InlineKeyboardButton('À propos 🚩', callback_data='about')
         ],[
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton('Fermer 🔐', callback_data='close')
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -467,7 +467,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif query_data == "about": 
         buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton('Fermer 🔐', callback_data='close')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
