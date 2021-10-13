@@ -1,4 +1,4 @@
-import re
+uimport re
 import time
 import asyncio
 
@@ -53,12 +53,12 @@ async def cb_status(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data="settings"
+                    "🔙 Retour", callback_data="settings"
                 ),
             
             InlineKeyboardButton
                 (
-                    "Close 🔐", callback_data="close"
+                    "Fermer 🔐", callback_data="close"
                 )
         ]
     ]
