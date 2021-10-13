@@ -29,11 +29,11 @@ async def cb_about(bot, update: CallbackQuery):
     if user_id not in chat_admins:
         return
 
-    text=f"<i><u>Bot's Status</u></i>\n"
-    text+=f"\n<b><i>Bot's Uptime:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
-    text+=f"\n<b><i>Bot Funtion:</i></b> <i>Auto Filter Files</i>\n"
+    text=f"<i><u>Statut du bot</u></i>\n"
+    text+=f"\n<b><i>Temps de disponibilité du bot:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
+    text+=f"\n<b><i>Fonction de Katnice:</i></b> <i>Filtrer automatiquement les fichiers</i>\n"
     text+=f"""\n<b><i>Bot Support:</i></b> <a href="https://t.me/Sharing_Club">@Shar_Group</a>\n"""
-    text+="""\n<b><i>Source Code:</i></b> <a href="https://t.me/Sharing_Group">Source</a>"""
+    text+="""\n<b><i>Source Code:</i></b> <a href="https://t.me/Shar_Group">Source</a>"""
 
     buttons = [
         [
