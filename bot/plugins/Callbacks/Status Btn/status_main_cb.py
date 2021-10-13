@@ -44,10 +44,10 @@ async def cb_status(bot, update: CallbackQuery):
     
     total_filters, total_chats, total_achats = await db.status(chat_id)
     
-    text = f"<b><i>Status Of {chat_name}</i></b>\n"
-    text += f"\n<b>Total Connected Chats:</b> <code>{total_chats}</code>\n"
-    text += f"\n<b>Total Active Chats:</b> <code>{total_achats}</code>\n"
-    text += f"\n<b>Total Filters:</b> <code>{total_filters}</code>"
+    text = f"<b><i>Statut de {chat_name}</i></b>\n"
+    text += f"\n<b>Nombre total de chats connectés:</b> <code>{total_chats}</code>\n"
+    text += f"\n<b>Nombre total de discussions actives:</b> <code>{total_achats}</code>\n"
+    text += f"\n<b>Filtres totaux:</b> <code>{total_filters}</code>"
     
     buttons = [
         [
