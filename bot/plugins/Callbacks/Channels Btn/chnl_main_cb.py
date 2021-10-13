@@ -44,7 +44,7 @@ async def cb_channel_list(bot, update: CallbackQuery):
 
     chat_id =  re.findall(r"channel_list\((.+)\)", query_data)[0]
     
-    text = "<i>Semms Like You Dont Have Any Channel Connected...</i>\n\n<i>Connect To Any Chat To Continue With This Settings...</i>"
+    text = "<i>On dirait que vous n'avez aucune chaîne connectée...</i>\n\n<i>Connectez-vous à n'importe quel chat pour continuer avec ces paramètres...</i>"
     
     db_list = await db.find_chat(int(chat_id))
     
@@ -98,7 +98,7 @@ async def cb_channel_list(bot, update: CallbackQuery):
         for x in range(1, (len(channel_name_list)+1)):
             text+=f"\n<code>{x}. {channel_name_list[x-1]}</code>\n"
     
-        text += "\nChoose Appropriate Buttons To Navigate Through Respective Channels"
+        text += "\nChoisissez les boutons appropriés pour naviguer à travers les canaux respectifs"
     
         
         btn_key = [
@@ -178,11 +178,11 @@ async def cb_info(bot, update: CallbackQuery):
         active_chats = False
         status = "Disconnected"
 
-    text=f"<i>Info About <b>{channel_name}</b></i>\n"
-    text+=f"\n<i>Channel Name:</i> <code>{channel_name}</code>\n"
-    text+=f"\n<i>Channel ID:</i> <code>{channel_id}</code>\n"
-    text+=f"\n<i>Channel Files:</i> <code>{f_count}</code>\n"
-    text+=f"\n<i>Current Status:</i> <code>{status}</code>\n"
+    text=f"<i>Informations sur <b>{channel_name}</b></i>\n"
+    text+=f"\n<i>Nom du canal:</i> <code>{channel_name}</code>\n"
+    text+=f"\n<i>L'ID du Canal:</i> <code>{channel_id}</code>\n"
+    text+=f"\n<i>Fichiers du Canal:</i> <code>{f_count}</code>\n"
+    text+=f"\n<i>Statut actuel:</i> <code>{status}</code>\n"
 
 
     if active_chats:
@@ -294,17 +294,17 @@ async def cb_info(bot, update: CallbackQuery):
     #     text=f"<i>Info About All Connected Of <b>{chat_name}</b></i>\n"
     #     text+=f"\n<i>Total Connected Chats:</i> {total_chats}\n"
         
-    #     text+=f"\n<i>Channel Names:</i>\n"
+    #     text+=f"\n<i>Noms des chaînes:</i>\n"
         
     #     for y in db_cnames:
     #         text+=f"\n                   <code>{y}</code>"
             
-    #     text+=f"\n<i>Channel ID's:</i>\n"
+    #     text+=f"\n<i>L'ID des Chaînes:</i>\n"
         
     #     for z in db_cids:
     #         text+=f"\n                 <code>{z}</code>"
         
-    #     text+=f"\n<i>Total Files In DB:</i> <code>{f_count}</code>\n"
+    #     text+=f"\n<i>Fichiers Total dans la BD:</i> <code>{f_count}</code>\n"
 
 
 
