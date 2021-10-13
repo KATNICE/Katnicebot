@@ -208,7 +208,7 @@ class Database:
             except Exception as e:
                 print (e)
                 return False
-        print("You Should First Connect To A Chat To Use This Funtion..... 'databse.py/#201' ")
+        print("Vous devez d'abord vous connecter à un chat pour utiliser cette fonction..... 'databse.py/#201' ")
         return False
 
 
