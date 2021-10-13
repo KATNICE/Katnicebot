@@ -50,15 +50,15 @@ async def cb_connect(bot, update: CallbackQuery):
     add_active = await db.update_active(chat_id, channel_id, channel_name)
     
     if not add_active:
-        await update.answer(f"{channel_name} Is Aldready in Active Connection", show_alert=True)
+        await update.answer(f"{channel_name} Est déjà en connexion active", show_alert=True)
         return
 
     text= f"<i>Connexion réussie à</i> <code>{channel_name}</code>\n"
-    text+=f"\n<i>Info About <b>{channel_name}</b></i>\n"
-    text+=f"\n<i>Channel Name:</i> <code>{channel_name}</code>\n"
-    text+=f"\n<i>Channel ID:</i> <code>{channel_id}</code>\n"
-    text+=f"\n<i>Channel Files:</i> <code>{f_count}</code>\n"
-    text+=f"\n<i>Current Status:</i> <code>Connected</code>\n"
+    text+=f"\n<i>Informations sur <b>{channel_name}</b></i>\n"
+    text+=f"\n<i>Nom du Canal:</i> <code>{channel_name}</code>\n"
+    text+=f"\n<i>L'ID du Canal:</i> <code>{channel_id}</code>\n"
+    text+=f"\n<i>Fichiers du Canal:</i> <code>{f_count}</code>\n"
+    text+=f"\n<i>Statut actuel:</i> <code>Connected</code>\n"
 
     buttons = [
                 [
@@ -128,15 +128,15 @@ async def cb_disconnect(bot, update: CallbackQuery):
     remove_active = await db.del_active(chat_id, int(channel_id))
     
     if not remove_active:
-        await update.answer("Couldnt Full Fill YOur Request...\n Report This @Shar_Group Along With Bot's Log", show_alert=True)
+        await update.answer("Impossible de répondre à votre demande...\n Référer vous à @Shar_Group avec le journal du bot", show_alert=True)
         return
     
     text= f"<i>Déconnecté avec succès de</i> <code>{channel_name}</code>\n"
-    text+=f"\n<i>Info About <b>{channel_name}</b></i>\n"
-    text+=f"\n<i>Channel Name:</i> <code>{channel_name}</code>\n"
-    text+=f"\n<i>Channel ID:</i> <code>{channel_id}</code>\n"
-    text+=f"\n<i>Channel Files:</i> <code>{f_count}</code>\n"
-    text+=f"\n<i>Current Status:</i> <code>Disconnected</code>\n"
+    text+=f"\n<i>Informations sur <b>{channel_name}</b></i>\n"
+    text+=f"\n<i>Nom du Canal:</i> <code>{channel_name}</code>\n"
+    text+=f"\n<i>L'ID du Canal:</i> <code>{channel_id}</code>\n"
+    text+=f"\n<i>Fichiers du Canal:</i> <code>{f_count}</code>\n"
+    text+=f"\n<i>Statut actuel:</i> <code>Disconnected</code>\n"
     
     buttons = [ 
                 [
@@ -208,10 +208,10 @@ async def cb_channel_delete(bot, update: CallbackQuery):
     f_delete = await db.del_filters(chat_id, channel_id)
 
     if (c_delete and f_delete ):
-        text=f"<code>{channel_name} [ {channel_id} ]</code> Has Been Sucessfully Deleted And All Its Files Were Cleared From DB...."
+        text=f"<code>{channel_name} [ {channel_id} ]</code> A été supprimé avec succès et tous ses fichiers ont été effacés de la base de données...."
 
     else:
-        text=f"<i>Couldn't Delete Channel And All Its Files From DB Sucessfully....</i>\n<i>Please Try Again After Sometimes...Also Make Sure To Check The Logs..!!</i>"
+        text=f"<i>Impossible de supprimer le canal et tous ses fichiers de la base de données avec succès....</i>\n<i>Veuillez réessayer après...Assurez-vous également de vérifier les journaux..!!</i>"
         await update.answer(text=text, show_alert=True)
 
     buttons = [
@@ -262,11 +262,11 @@ async def cb_filters_delete(bot, update: CallbackQuery):
     f_delete = await db.del_filters(chat_id, int(channel_id))
 
     if not f_delete:
-        text="<b><i>Oops..!!</i></b>\n\nEncountered Some Error While Deleteing Filters....\nPlease Check The Logs...."
+        text="<b><i>Oops..!!</i></b>\n\nA rencontré une erreur lors de la suppression des filtres....\nVeuillez vérifier les journaux...."
         await update.answer(text=text, show_alert=True)
         return
 
-    text =f"All Filters Of <code>{channel_id}[{channel_name}]</code> Has Been Deleted Sucessfully From My DB.."
+    text =f"Tous les Filtres de <code>{channel_id}[{channel_name}]</code> A été supprimé avec succès de ma base de données.."
 
     buttons=[
         [
@@ -360,20 +360,20 @@ async def cb_filters_delete(bot, update: CallbackQuery):
         
     #         total_chats = len(db_cids)
 
-    #     text=f"<i>Info About All Connected Of <b>{chat_name}</b></i>\n"
-    #     text+=f"\n<i>Total Connected Chats:</i> {total_chats}"
+    #     text=f"<i>Infos sur tous connectés de <b>{chat_name}</b></i>\n"
+    #     text+=f"\n<i>Nombre total de Chats connectés:</i> {total_chats}"
         
-    #     text+=f"\n<i>Channel Names:</i>\n"
+    #     text+=f"\n<i>Noms des chaînes:</i>\n"
         
     #     for ch in db_cnames:
     #         text+=f"                   <code>{ch}</code>\n"
             
-    #     text+=f"\n<i>Channel ID's:</i>\n"
+    #     text+=f"\n<i>ID de chaîne:</i>\n"
         
     #     for ch in db_cnames:
     #         text+=f"\n                 <code>{ch}</code>\n"
         
-    #     text+=f"\n<i>Total Files In DB:</i> <code>{f_count}</code>\n"
+    #     text+=f"\n<i>Nombre total de fichiers dans la BD:</i> <code>{f_count}</code>\n"
 
 
 
@@ -406,7 +406,7 @@ async def cb_filters_delete(bot, update: CallbackQuery):
     #             [
     #                 InlineKeyboardButton
     #                     (
-    #                         "Delete All Filters ⚠", callback_data=f"warn({chat_id}|f_delete|gcmds)"
+    #                         "Supprimer tous les filtres ⚠", callback_data=f"warn({chat_id}|f_delete|gcmds)"
     #                     )
     #             ]
     #     )
