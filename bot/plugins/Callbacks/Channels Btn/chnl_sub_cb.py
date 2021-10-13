@@ -53,7 +53,7 @@ async def cb_connect(bot, update: CallbackQuery):
         await update.answer(f"{channel_name} Is Aldready in Active Connection", show_alert=True)
         return
 
-    text= f"<i>Sucessfully Connected To</i> <code>{channel_name}</code>\n"
+    text= f"<i>Connexion réussie à</i> <code>{channel_name}</code>\n"
     text+=f"\n<i>Info About <b>{channel_name}</b></i>\n"
     text+=f"\n<i>Channel Name:</i> <code>{channel_name}</code>\n"
     text+=f"\n<i>Channel ID:</i> <code>{channel_id}</code>\n"
@@ -64,12 +64,12 @@ async def cb_connect(bot, update: CallbackQuery):
                 [
                     InlineKeyboardButton
                         (
-                            "🚨 Disconnect 🚨", callback_data=f"warn({channel_id}|{channel_name}|disconnect)"
+                            "🚨 Déconnecter 🚨", callback_data=f"warn({channel_id}|{channel_name}|disconnect)"
                         ),
                     
                     InlineKeyboardButton
                         (
-                            "Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)"
+                            "Supprimer ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)"
                         )
                 ]
     ]
@@ -78,7 +78,7 @@ async def cb_connect(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "Delete Filters ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)"
+                        "Supprimer les filtres ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)"
                     )
             ]
     )
@@ -87,7 +87,7 @@ async def cb_connect(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "🔙 Back", callback_data=f"channel_list({chat_id})"
+                        "🔙 Retour", callback_data=f"channel_list({chat_id})"
                     )
             ]
     )
@@ -128,10 +128,10 @@ async def cb_disconnect(bot, update: CallbackQuery):
     remove_active = await db.del_active(chat_id, int(channel_id))
     
     if not remove_active:
-        await update.answer("Couldnt Full Fill YOur Request...\n Report This @CrazyBotszGrp Along With Bot's Log", show_alert=True)
+        await update.answer("Couldnt Full Fill YOur Request...\n Report This @Shar_Group Along With Bot's Log", show_alert=True)
         return
     
-    text= f"<i>Sucessfully Disconnected From</i> <code>{channel_name}</code>\n"
+    text= f"<i>Déconnecté avec succès de</i> <code>{channel_name}</code>\n"
     text+=f"\n<i>Info About <b>{channel_name}</b></i>\n"
     text+=f"\n<i>Channel Name:</i> <code>{channel_name}</code>\n"
     text+=f"\n<i>Channel ID:</i> <code>{channel_id}</code>\n"
@@ -142,12 +142,12 @@ async def cb_disconnect(bot, update: CallbackQuery):
                 [
                     InlineKeyboardButton
                         (
-                            "💠 Connect 💠", callback_data=f"warn({channel_id}|{channel_name}|connect)"
+                            "💠 Connecter 💠", callback_data=f"warn({channel_id}|{channel_name}|connect)"
                         ),
                     
                     InlineKeyboardButton
                         (
-                            "Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)"
+                            "Supprimer ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)"
                         )
                 ]
     ]
@@ -156,7 +156,7 @@ async def cb_disconnect(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "Delete Filters ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)"
+                        "Supprimer les filtres ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)"
                     )
             ]
     )
@@ -165,7 +165,7 @@ async def cb_disconnect(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "🔙 Back", callback_data=f"channel_list({chat_id})"
+                        "🔙 Retour", callback_data=f"channel_list({chat_id})"
                     )
             ]
     )
@@ -218,12 +218,12 @@ async def cb_channel_delete(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"channel_list({chat_id})"
+                    "🔙 Retour", callback_data=f"channel_list({chat_id})"
                 ),
                 
             InlineKeyboardButton
                 (
-                    "Close 🔐", callback_data="close"
+                    "Fermer 🔐", callback_data="close"
                 )
         ]
     ]
@@ -272,12 +272,12 @@ async def cb_filters_delete(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "Back", callback_data="settings"
+                    "Retour", callback_data="settings"
                 ),
             
             InlineKeyboardButton
                 (
-                    "Close", callback_data="close"
+                    "Fermer", callback_data="close"
                 )
         ]
     ]
@@ -381,12 +381,12 @@ async def cb_filters_delete(bot, update: CallbackQuery):
     #                 [
     #                     InlineKeyboardButton
     #                         (
-    #                             "💠 Connect All 💠", callback_data=f"warn({chat_id}|conn|gcmds)"
+    #                             "💠 Tout connecté 💠", callback_data=f"warn({chat_id}|conn|gcmds)"
     #                         ),
                         
     #                     InlineKeyboardButton
     #                         (
-    #                             "🚨 Disconnect All 🚨", callback_data=f"warn({chat_id}|disconn|gcmds)"
+    #                             "🚨 Tout Déconnecté 🚨", callback_data=f"warn({chat_id}|disconn|gcmds)"
     #                         )
     #                 ]
     #     ]
@@ -396,7 +396,7 @@ async def cb_filters_delete(bot, update: CallbackQuery):
     #             [                    
     #                 InlineKeyboardButton
     #                     (
-    #                         "Delete All Chats ❌", callback_data=f"warn({chat_id}|c_delete|gcmds)"
+    #                         "Supprimer toutes les discussions ❌", callback_data=f"warn({chat_id}|c_delete|gcmds)"
     #                     )
     #             ]
     #     )
@@ -415,7 +415,7 @@ async def cb_filters_delete(bot, update: CallbackQuery):
     #             [
     #                 InlineKeyboardButton
     #                     (
-    #                         "🔙 Back", callback_data=f"channel_list({chat_id})"
+    #                         "🔙 Retour", callback_data=f"channel_list({chat_id})"
     #                     )
     #             ]
     #     )
