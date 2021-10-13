@@ -30,25 +30,25 @@ async def settings(bot, update):
     bot_info = await bot.get_me()
     bot_first_name= bot_info.first_name
     
-    text =f"<i>{bot_first_name}'s</i> Settings Pannel.....\n"
-    text+=f"\n<i>You Can Use This Menu To Change Connectivity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</i>"
+    text =f"<i>{bot_first_name}'s</i> Panneau de configuration.....\n"
+    text+=f"\n<i>Vous pouvez utiliser ce menu pour modifier la connectivité et connaître l'état de chaque canal connecté, modifier les types de filtre, configurer les résultats du filtre et connaître l'état de votre groupeity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</i>"
     
     buttons = [
         [
             InlineKeyboardButton
                 (
-                    "Channels", callback_data=f"channel_list({chat_id})"
+                    "Canaux", callback_data=f"channel_list({chat_id})"
                 ), 
             
             InlineKeyboardButton
                 (
-                    "Filter Types", callback_data=f"types({chat_id})"
+                    "Types de Filtres", callback_data=f"types({chat_id})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "Configure 🛠", callback_data=f"config({chat_id})"
+                    "Configurer 🛠", callback_data=f"config({chat_id})"
                 )
         ], 
         [
@@ -59,13 +59,13 @@ async def settings(bot, update):
             
             InlineKeyboardButton
                 (
-                    "About", callback_data=f"about({chat_id})"
+                    "À propos", callback_data=f"about({chat_id})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "Close 🔐", callback_data="close"
+                    "Fermer 🔐", callback_data="close"
                 )
         ]
     ]
