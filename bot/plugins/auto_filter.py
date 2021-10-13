@@ -143,13 +143,13 @@ async def auto_filter(bot: Client, update: Message):
         len_results = len(results)
         results = None # Free Up Memory
         
-        FIND[query] = {"results": result, "total_len": len_results, "max_pages": max_pages} # TrojanzHex's Idea Of Dicts😅
+        FIND[query] = {"results": result, "total_len": len_results, "max_pages": max_pages} # L'idée de Sharing Club des dictons😅
 
         # Add next buttin if page count is not equal to 1
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("Next ⏩", callback_data=f"navigate(0|next|{query})")
+                    InlineKeyboardButton("Suivante ⏩", callback_data=f"navigate(0|next|{query})")
                 ]
             )
         
@@ -206,7 +206,7 @@ async def auto_filter(bot: Client, update: Message):
         try:
             await bot.send_message(
                 chat_id = update.chat.id,
-                text=f"Found {(len_results)} Results For Your Query: <code>{query}</code>",
+                text=f"Trouver {(len_results)} Résultats de votre requête: <code>{query}</code>",
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=update.message_id
