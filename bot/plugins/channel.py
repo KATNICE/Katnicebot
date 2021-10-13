@@ -36,25 +36,25 @@ async def connect(bot: Bot, update: Message):
     try:
         if target_chat[1].startswith("@"):
             if len(target_chat[1]) < 5:
-                await update.reply_text("Invalid Username...!!!")
+                await update.reply_text("Nom d'utilisateur invalide...!!!")
                 return
             target = target_chat[1]
             
         elif not target_chat[1].startswith("@"):
             if len(target_chat[1]) < 14:
-                await update.reply_text("Invalid Chat Id...\nChat ID Should Be Something Like This: <code>-100xxxxxxxxxx</code>")
+                await update.reply_text("Identifiant de discussion non valide...\nL'ID de chat devrait ressembler à ceci : <code>-100xxxxxxxxxx</code>")
                 return
             target = int(target_chat[1])
                 
     except Exception:
-        await update.reply_text("Invalid Input...\nYou Should Specify Valid <code>chat_id(-100xxxxxxxxxx)</code> or <code>@username</code>")
+        await update.reply_text("Entrée invalide...\nVous devez Entrée des données valide <code>chat_id(-100xxxxxxxxxx)</code> or <code>@username</code>")
         return
     
     try:
         join_link = await bot.export_chat_invite_link(target)
     except Exception as e:
         print(e)
-        await update.reply_text(f"Make Sure Im Admin At <code>{target}</code> And Have Permission For '<i>Inviting Users via Link</i>' And Try Again.....!!!")
+        await update.reply_text(f"Assurez-vous que je suis administrateur à <code>{target}</code> Et avoir la permission de '<i>Inviting Users via Link</i>' Et essayez à nouveau.....!!!")
         return
     
     userbot_info = await bot.USER.get_me()
@@ -68,7 +68,7 @@ async def connect(bot: Bot, update: Message):
         pass
     
     except Exception:
-        await update.reply_text(f"My UserBot [{userbot_name}](tg://user?id={userbot_id}) Couldnt Join The Channel `{target}` Make Sure Userbot Is Not Banned There Or Add It Manually And Try Again....!!")
+        await update.reply_text(f"Mon Assistante [{userbot_name}](tg://user?id={userbot_id}) Impossible de rejoindre la chaîne `{target}` Assurez-vous que Katnice n'y est pas interdit ou ajoutez-le manuellement et réessayez....!!")
         return
     
     try:
@@ -77,17 +77,17 @@ async def connect(bot: Bot, update: Message):
         channel_name = c_chat.title
         
     except Exception as e:
-        await update.reply_text("Encountered Some Issue..Please Check Logs..!!")
+        await update.reply_text("A rencontré un problème..Veuillez vérifier les journaux..!!")
         raise e
         
         
     in_db = await db.in_db(chat_id, channel_id)
     
     if in_db:
-        await update.reply_text("Channel Aldready In Db...!!!")
+        await update.reply_text("Canal déjà dans la DB...!!!")
         return
     
-    wait_msg = await update.reply_text("Please Wait Till I Add All Your Files From Channel To Db\n\n<i>This May Take 2 or 3 Hrs Depending On Your No. Of Files In Channel.....</i>\n\nUntil Then Please Dont Sent Any Other Command Or This Operation May Be Intrupted....")
+    wait_msg = await update.reply_text("Veuillez patienter jusqu'à ce que j'ajoute tous vos fichiers de la chaîne à la base de données\n\n<i>Cela peut prendre 2 ou 3 heures selon votre nombre de fichiers dans le canal.....</i>\n\nJusque-là, veuillez ne pas envoyer d'autre commande ou cette opération pourrait être interrompue....")
     
     try:
         type_list = ["video", "audio", "document"]
@@ -181,16 +181,16 @@ async def connect(bot: Bot, update: Message):
                         continue
                     print(e)
 
-        print(f"{skipCT} Files Been Skipped Due To File Name Been None..... #BlameTG")
+        print(f"{skipCT} Les fichiers ont été ignorés car le nom du fichier n'a pas été..... #BlameTG")
     except Exception as e:
-        await wait_msg.edit_text("Couldnt Fetch Files From Channel... Please look Into Logs For More Details")
+        await wait_msg.edit_text("Impossible de récupérer les fichiers de la chaîne... Veuillez consulter les journaux pour plus de détails")
         raise e
     
     await db.add_filters(data)
     await db.add_chat(chat_id, channel_id, channel_name)
     await recacher(chat_id, True, True, bot, update)
     
-    await wait_msg.edit_text(f"Channel Was Sucessfully Added With <code>{len(data)}</code> Files..")
+    await wait_msg.edit_text(f"La chaîne a été ajoutée avec succès avec <code>{len(data)}</code> Files..")
 
 
 @Client.on_message(filters.command(["del"]) & filters.group, group=1)
@@ -215,18 +215,18 @@ async def disconnect(bot: Bot, update):
     try:
         if target_chat[1].startswith("@"):
             if len(target_chat[1]) < 5:
-                await update.reply_text("Invalid Username...!!!")
+                await update.reply_text("Nom d'utilisateur invalide...!!!")
                 return
             target = target_chat[1]
             
         elif not target_chat.startswith("@"):
             if len(target_chat[1]) < 14:
-                await update.reply_text("Invalid Chat Id...\nChat ID Should Be Something Like This: <code>-100xxxxxxxxxx</code>")
+                await update.reply_text("ID non valide...\nL'ID de chat devrait être quelque chose comme ça: <code>-100xxxxxxxxxx</code>")
                 return
             target = int(target_chat[1])
                 
     except Exception:
-        await update.reply_text("Invalid Input...\nYou Should Specify Valid chat_id(-100xxxxxxxxxx) or @username")
+        await update.reply_text("Entrée invalide...\nVous devez spécifier un chat_id(-100xxxxxxxxxx) or @username")
         return
     
     userbot = await bot.USER.get_me()
@@ -237,23 +237,23 @@ async def disconnect(bot: Bot, update):
         channel_info = await bot.USER.get_chat(target)
         channel_id = channel_info.id
     except Exception:
-        await update.reply_text(f"My UserBot [{userbot_name}](tg://user?id={userbot_id}) Couldnt Fetch Details Of `{target}` Make Sure Userbot Is Not Banned There Or Add It Manually And Try Again....!!")
+        await update.reply_text(f"Mon Assistante [{userbot_name}](tg://user?id={userbot_id}) Impossible de récupérer les détails de `{target}` Assurez-vous que Katnice n'y est pas interdit ou ajoutez-le manuellement et réessayez....!!")
         return
     
     in_db = await db.in_db(chat_id, channel_id)
     
     if not in_db:
-        await update.reply_text("This Channel Is Not Connected With The Group...")
+        await update.reply_text("Cette chaîne n'est pas connectée au groupe...")
         return
     
-    wait_msg = await update.reply_text("Deleting All Files Of This Channel From DB....!!!\n\nPlease Be Patience...Dont Sent Another Command Until This Process Finishes..")
+    wait_msg = await update.reply_text("Suppression de tous les fichiers de ce canal de la base de données....!!!\n\nS'il vous plaît soyez patient... N'envoyez pas d'autre commande jusqu'à ce que ce processus se termine..")
     
     await db.del_filters(chat_id, channel_id)
     await db.del_active(chat_id, channel_id)
     await db.del_chat(chat_id, channel_id)
     await recacher(chat_id, True, True, bot, update)
     
-    await wait_msg.edit_text("Sucessfully Deleted All Files From DB....")
+    await wait_msg.edit_text("Suppression réussie de tous les fichiers de la base de données....")
 
 
 @Client.on_message(filters.command(["delall"]) & filters.group, group=1)
@@ -277,7 +277,7 @@ async def delall(bot: Bot, update):
     await db.delete_all(chat_id)
     await recacher(chat_id, True, True, bot, update)
     
-    await update.reply_text("Sucessfully Deleted All Connected Chats From This Group....")
+    await update.reply_text("Tous les chats connectés de ce groupe ont été supprimés avec succès....")
 
 
 @Client.on_message(filters.channel & (filters.video | filters.audio | filters.document) & ~filters.edited, group=0)
