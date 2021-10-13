@@ -48,7 +48,7 @@ async def cb_navg(bot, update: CallbackQuery):
     
     # Checks if user is same as requested user or is admin
     if not ((user_id == ruser_id) or (user_id in chat_admins)):
-        await update.answer("Nice Try ;)",show_alert=True)
+        await update.answer("Bien essayé ;)",show_alert=True)
         return
 
 
@@ -266,8 +266,8 @@ async def cb_warn(bot, update: CallbackQuery):
     elif action == "c_delete":
         text=f"<i>Êtes-vous sûr de vouloir vous déconnecter</i> <code>{channel_name}</code> <i>De ce groupe??</i>\n"
         text+=f"\n<i><b>Cela supprimera également la chaîne et tous ses fichiers de la base de données....!!</b></i>\n"
-        text+=f"\nYou Need To Add Channel Again If You Need To Shows It Result..."
-        text+=f"\n<s>ProTip: Make Use Of Disconnect Button To Disable <code>{channel_name}</code> Results Temporarily....</s>"
+        text+=f"\nVous devez ajouter à nouveau une chaîne si vous devez afficher le résultat..."
+        text+=f"\n<s>Conseil de pro : utilisez le bouton de déconnexion pour désactiver <code>{channel_name}</code> Résultats temporaires....</s>"
 
 
     elif action=="f_delete":
