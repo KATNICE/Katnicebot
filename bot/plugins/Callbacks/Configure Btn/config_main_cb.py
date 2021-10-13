@@ -54,33 +54,33 @@ async def cb_config(bot, update: CallbackQuery):
     pm_file_chat  = settings["configs"].get("pm_fchat", False)
     accuracy_point = settings["configs"].get("accuracy", 0.80)
     
-    text=f"<i><b>Configure Your <u><code>{chat_name}</code></u> Group's Filter Settings...</b></i>\n"
+    text=f"<i><b>Configurez votre <u><code>{chat_name}</code></u> Paramètres de filtre du groupe...</b></i>\n"
     
     text+=f"\n<i>{chat_name}</i> Current Settings:\n"
 
-    text+=f"\n - Max Filter: <code>{mf_count}</code>\n"
+    text+=f"\n - Filtre maximum: <code>{mf_count}</code>\n"
     
-    text+=f"\n - Max Pages: <code>{mp_count}</code>\n"
+    text+=f"\n - Nombre maximal de pages: <code>{mp_count}</code>\n"
     
-    text+=f"\n - Max Filter Per Page: <code>{mr_count}</code>\n"
+    text+=f"\n - Filtre maximum par page: <code>{mr_count}</code>\n"
 
-    text+=f"\n - Accuracy Percentage: <code>{accuracy_point}</code>\n"
+    text+=f"\n - Pourcentage de précision: <code>{accuracy_point}</code>\n"
     
-    text+=f"\n - Show Invitation Link: <code>{show_invite}</code>\n"
+    text+=f"\n - Afficher le lien d'invitation: <code>{show_invite}</code>\n"
     
-    text+=f"\n - Provide File In Bot PM: <code>{pm_file_chat}</code>\n"
+    text+=f"\n - Fournir un fichier dans katnice en Privée: <code>{pm_file_chat}</code>\n"
     
-    text+="\nAdjust Above Value Using Buttons Below... "
+    text+="\nAjuster la valeur au-dessus à l'aide des boutons ci-dessous... "
     buttons=[
         [
             InlineKeyboardButton
                 (
-                    "Filter Per Page", callback_data=f"mr_count({mr_count}|{chat_id})"
+                    "Filtrer par page", callback_data=f"mr_count({mr_count}|{chat_id})"
                 ), 
     
             InlineKeyboardButton
                 (
-                    "Max Pages",       callback_data=f"mp_count({mp_count}|{chat_id})"
+                    "Nombre maximum de pages",       callback_data=f"mp_count({mp_count}|{chat_id})"
                 )
         ]
     ]
@@ -90,7 +90,7 @@ async def cb_config(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "Total Filter Count", callback_data=f"mf_count({mf_count}|{chat_id})"
+                    "Nombre total de filtres", callback_data=f"mf_count({mf_count}|{chat_id})"
                 )
         ]
     )
@@ -100,12 +100,12 @@ async def cb_config(bot, update: CallbackQuery):
         [                
              InlineKeyboardButton
                 (
-                    "Show Invite Links", callback_data=f"show_invites({show_invite}|{chat_id})"
+                    "Afficher les liens d'invitation", callback_data=f"show_invites({show_invite}|{chat_id})"
                 ),
 
             InlineKeyboardButton
                 (
-                    "Bot File Chat", callback_data=f"inPM({pm_file_chat}|{chat_id})"
+                    "Fichier de Chat du bot", callback_data=f"inPM({pm_file_chat}|{chat_id})"
                 )
         ]
     )
@@ -115,7 +115,7 @@ async def cb_config(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "Result's Accuracy", callback_data=f"accuracy({accuracy_point}|{chat_id})"
+                    "Précision du résultat", callback_data=f"accuracy({accuracy_point}|{chat_id})"
                 )
         ]
     )
@@ -125,7 +125,7 @@ async def cb_config(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"settings"
+                    "🔙 Retour", callback_data=f"settings"
                 )
         ]
     )
