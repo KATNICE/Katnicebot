@@ -45,7 +45,7 @@ async def cb_types(bot, update: CallbackQuery):
     
     _types = await db.find_chat(int(chat_id))
     
-    text=f"<i>Filter Types Enabled/Disbled In <code>{chat_name}</code></i>\n"
+    text=f"<i>Types de filtres activés/Désactivé dans <code>{chat_name}</code></i>\n"
     
     _types = _types["types"]
     vid = _types["video"]
@@ -85,8 +85,8 @@ async def cb_types(bot, update: CallbackQuery):
         acb_data = f"toggle({chat_id}|audio|True)"
 
     
-    text+="\n<i>Below Buttons Will Toggle Respective Media Types As Enabled Or Disabled....\n</i>"
-    text+="<i>This Will Take Into Action As Soon As You Change Them....</i>"
+    text+="\n<i>Les boutons ci-dessous feront basculer les types de médias respectifs comme activés ou désactivés....\n</i>"
+    text+="<i>Cela entrera en action dès que vous les changerez....</i>"
     
     buttons.append([InlineKeyboardButton(f"Video Index: {v_e}", callback_data=vcb_data)])
     buttons.append([InlineKeyboardButton(f"Audio Index: {a_e}", callback_data=acb_data)])
@@ -156,10 +156,10 @@ async def cb_toggle(bot, update: CallbackQuery):
     process = await db.update_settings(chat_id, settings)
     
     if process:
-        await update.answer(text="Filter Types Updated Sucessfully", show_alert=True)
+        await update.answer(text="Types de filtres mis à jour avec succès", show_alert=True)
     
     else:
-        text="Something Wrong Please Check Bot Log For More Information...."
+        text="Quelque chose ne va pas, veuillez vérifier le journal de Katnice pour plus d'informations...."
         await update.answer(text, show_alert=True)
         return
     
@@ -206,7 +206,7 @@ async def cb_toggle(bot, update: CallbackQuery):
 
     
     text+="\n<i>Below Buttons Will Toggle Respective Media Types As Enabled Or Disabled....\n</i>"
-    text+="<i>This Will Take Into Action As Soon As You Change Them....</i>"
+    text+="<i>Cela entrera en action dès que vous les changerez....</i>"
     
     buttons.append([InlineKeyboardButton(f"Video Index : {v_e}", callback_data=vcb_data)])
     buttons.append([InlineKeyboardButton(f"Audio Index : {a_e}", callback_data=acb_data)])
