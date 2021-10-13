@@ -43,49 +43,49 @@ async def cb_max_buttons(bot, update: CallbackQuery):
 
     count, chat_id = re.findall(r"mr_count\((.+)\)", query_data)[0].split("|", 1)
 
-    text = f"<i>Choose Your Desired 'Max Filter Count Per Page' For Every Filter Results Shown In</i> <code>{chat_name}</code>"
+    text = f"<i>Choisissez le 'nombre maximal de filtres par page' que vous souhaitez pour chaque résultat de filtre affiché dans</i> <code>{chat_name}</code>"
 
     buttons = [
         [
             InlineKeyboardButton
                 (
-                    "5 Filters", callback_data=f"set(per_page|5|{chat_id}|{count})"
+                    "5 filtres", callback_data=f"set(per_page|5|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "10 Filters", callback_data=f"set(per_page|10|{chat_id}|{count})"
+                    "10 filtres", callback_data=f"set(per_page|10|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "15 Filters", callback_data=f"set(per_page|15|{chat_id}|{count})"
+                    "15 filtres", callback_data=f"set(per_page|15|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "20 Filters", callback_data=f"set(per_page|20|{chat_id}|{count})"
+                    "20 filtres", callback_data=f"set(per_page|20|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "25 Filters", callback_data=f"set(per_page|25|{chat_id}|{count})"
+                    "25 filtres", callback_data=f"set(per_page|25|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "30 Filters", callback_data=f"set(per_page|30|{chat_id}|{count})"
+                    "30 filtres", callback_data=f"set(per_page|30|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"config({chat_id})"
+                    "🔙 Retour", callback_data=f"config({chat_id})"
                 )
         ]
     ]
@@ -120,7 +120,7 @@ async def cb_max_page(bot, update: CallbackQuery):
 
     count, chat_id = re.findall(r"mp_count\((.+)\)", query_data)[0].split("|", 1)
     
-    text = f"<i>Choose Your Desired 'Max Filter Page Count' For Every Filter Results Shown In</i> <code>{chat_name}</code>"
+    text = f"<i>Choisissez le 'nombre maximal de pages de filtre' que vous souhaitez pour chaque résultat de filtre affiché dans</i> <code>{chat_name}</code>"
     
     buttons = [
 
@@ -157,7 +157,7 @@ async def cb_max_page(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"config({chat_id})"
+                    "🔙 Retour", callback_data=f"config({chat_id})"
                 )
         ]
 
@@ -193,32 +193,32 @@ async def cb_max_results(bot, update: CallbackQuery):
 
     count, chat_id = re.findall(r"mf_count\((.+)\)", query_data)[0].split("|", 1)
 
-    text = f"<i>Choose Your Desired 'Max Filter' To Be Fetched From DB For Every Filter Results Shown In</i> <code>{chat_name}</code>"
+    text = f"<i>Choisissez le 'filtre maximal' que vous souhaitez récupérer à partir de la base de données pour chaque résultat de filtre affiché dans</i> <code>{chat_name}</code>"
 
     buttons = [
 
         [
             InlineKeyboardButton
                 (
-                    "50 Results", callback_data=f"set(results|50|{chat_id}|{count})"
+                    "50 Résultats", callback_data=f"set(results|50|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "100 Results", callback_data=f"set(results|100|{chat_id}|{count})"
+                    "100 Résultats", callback_data=f"set(results|100|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "150 Results", callback_data=f"set(results|150|{chat_id}|{count})"
+                    "150 Résultats", callback_data=f"set(results|150|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "200 Results", callback_data=f"set(results|200|{chat_id}|{count})"
+                    "200 Résultats", callback_data=f"set(results|200|{chat_id}|{count})"
                 )
         ],
         [
@@ -236,7 +236,7 @@ async def cb_max_results(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"config({chat_id})"
+                    "🔙 Retour", callback_data=f"config({chat_id})"
                 )
         ]
     ]
@@ -277,13 +277,13 @@ async def cb_show_invites(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "Disable ❌", callback_data=f"set(showInv|False|{chat_id}|{value})"
+                        "Désactiver ❌", callback_data=f"set(showInv|False|{chat_id}|{value})"
                     )
             ],
             [
                 InlineKeyboardButton
                     (
-                        "Back 🔙", callback_data=f"config({chat_id})"
+                        "Retour 🔙", callback_data=f"config({chat_id})"
                     )
             ]
         ]
@@ -293,18 +293,18 @@ async def cb_show_invites(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "Enable ✔", callback_data=f"set(showInv|True|{chat_id}|{value})"
+                        "Activé ✔", callback_data=f"set(showInv|True|{chat_id}|{value})"
                     )
             ],
             [
                 InlineKeyboardButton
                     (
-                        "Back 🔙", callback_data=f"config({chat_id})"
+                        "Retour 🔙", callback_data=f"config({chat_id})"
                     )
             ]
         ]
     
-    text=f"<i>This Config Will Help You To Show Invitation Link Of All Active Chats Along With The Filter Results For The Users To Join.....</i>"
+    text=f"<i>Cette configuration vous aidera à afficher le lien d'invitation de toutes les discussions actives ainsi que les résultats du filtre pour les utilisateurs qui ont rejoints.....</i>"
     
     reply_markup=InlineKeyboardMarkup(buttons)
     
@@ -344,13 +344,13 @@ async def cb_pm_file(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "Disable ❎", callback_data=f"set(inPM|False|{chat_id}|{value})"
+                        "Désactiver ❎", callback_data=f"set(inPM|False|{chat_id}|{value})"
                     )
             ],
             [
                 InlineKeyboardButton
                     (
-                        "Back 🔙", callback_data=f"config({chat_id})"
+                        "Retour 🔙", callback_data=f"config({chat_id})"
                     )
             ]
         ]
@@ -360,18 +360,18 @@ async def cb_pm_file(bot, update: CallbackQuery):
             [
                 InlineKeyboardButton
                     (
-                        "Enable ✅", callback_data=f"set(inPM|True|{chat_id}|{value})"
+                        "Activé ✅", callback_data=f"set(inPM|True|{chat_id}|{value})"
                     )
             ],
             [
                 InlineKeyboardButton
                     (
-                        "Back 🔙", callback_data=f"config({chat_id})"
+                        "Retour 🔙", callback_data=f"config({chat_id})"
                     )
             ]
         ]
     
-    text=f"<i>This Config Will Help You To Enable/Disable File Transfer Through Bot PM Without Redirecting Them To Channel....</i>"
+    text=f"<i>Cette configuration vous aidera à activer/désactiver le transfert de fichiers via Katnice en Privée sans les rediriger vers le canal....</i>"
     
     reply_markup=InlineKeyboardMarkup(buttons)
     
@@ -406,9 +406,9 @@ async def cb_accuracy(bot, update: CallbackQuery):
 
     val, chat_id = re.findall(r"accuracy\((.+)\)", query_data)[0].split("|", 1)
     
-    text = f"<i>Choose Your Desired 'Accuracy Perceentage' For Every Filter Results Shown In</i> <code>{chat_name}</code>\n\n"
-    text+= f"<i>NB: Higher The Value Better Matching Results Will Be Provided... And If Value Is Lower It Will Show More Results \
-        Which Is Fimilary To Query Search (Wont Be Accurate)....</i>"
+    text = f"<i>Choisissez votre 'pourcentage de précision' souhaité pour chaque résultat de filtre affiché dans</i> <code>{chat_name}</code>\n\n"
+    text+= f"<i>NB : Plus la valeur est élevée, de meilleurs résultats correspondants seront fournis... Et si la valeur est inférieure, cela affichera plus de résultats \
+        Ce qui est similaire à la recherche par requête (ne sera pas précis)....</i>"
 
     buttons = [
         [
@@ -450,7 +450,7 @@ async def cb_accuracy(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"config({chat_id})"
+                    "🔙 Retour", callback_data=f"config({chat_id})"
                 )
         ]
     ]
