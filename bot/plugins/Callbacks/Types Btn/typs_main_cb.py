@@ -96,7 +96,7 @@ async def cb_types(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"settings"
+                    "🔙 Retour", callback_data=f"settings"
                 )
         ]
     )
@@ -165,7 +165,7 @@ async def cb_toggle(bot, update: CallbackQuery):
     
     _types = await db.find_chat(int(chat_id))
     
-    text =f"<i>Filter Types Enabled In <code>{update.message.chat.title}</code></i>\n"
+    text =f"<i>Types de filtres activés dans <code>{update.message.chat.title}</code></i>\n"
     
     _types = _types["types"]
     vid = _types["video"]
@@ -216,7 +216,7 @@ async def cb_toggle(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "🔙 Back", callback_data=f"settings"
+                    "🔙 Retour", callback_data=f"settings"
                 )
         ]
     )
